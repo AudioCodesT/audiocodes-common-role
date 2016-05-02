@@ -39,5 +39,11 @@
 - name: "Create my.cnf"
   template: src=arm-my.cnf.j2 dest='~/.my.cnf' mode=0660
   sudo: yes
+  when: ac_flavor == 'arm'
+
+- name: "Create my.cnf"
+  template: src=my.cnf.j2 dest='~/.my.cnf' mode=0660
+  sudo: yes
+  when: ac_flavor != 'arm'
   #become: yes 
   #become_user: "{{ ansible_ssh_user }}"
