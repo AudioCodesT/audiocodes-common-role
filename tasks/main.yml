@@ -35,4 +35,7 @@
     - bash-completion
   sudo: yes
   when: ansible_os_family == "RedHat"
-
+# mysql my.cnf
+- name: "Create my.cnf"
+  template: src=my.cnf.j2 dest='~/.my.cmf' mode=0660
+  sudo: yes
